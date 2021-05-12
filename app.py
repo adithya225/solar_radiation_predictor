@@ -1,5 +1,6 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
+from pandas import DataFrame
 import pickle
 
 app = Flask(__name__)
@@ -33,6 +34,7 @@ def predict():
     temperature = float(features[13])
     pressure = int(features[14])
     final_features = []
+    a = [final_features]
     #a=[]
     #a = 
     #print(a)
@@ -52,7 +54,8 @@ def predict():
     final_features.append(temperature)
     final_features.append(pressure)
     print(len(final_features))
-    prediction = model.predict([final_features])
+    df = DataFrame(a, columns=None)
+    prediction = model.predict(df)
     output = round(prediction[0], 2)    
     return render_template('index.html',prediction_text = output)
  
