@@ -21,7 +21,12 @@
   </style>
   
 </head>
-<body>
+<body  style="background-image: url('{{ url_for('static', filename='solar.jpg') }}');
+background-repeat:no-repeat;
+background-size:cover;
+height:100vh;
+display:flex;
+">
 
  <div class="login">
 	<h1>Predict Solar Radiation</h1>
